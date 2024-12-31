@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <ctype.h>  
+
+
+void countVowels(const char *sentence, int *a, int *e, int *i, int *o, int *u) {
+    *a = *e = *i = *o = *u = 0; 
+    
+    for (int j = 0; sentence[j] != '\0'; j++) {
+        char ch = tolower(sentence[j]);  
+
+        
+        switch (ch) {
+            case 'a': (*a)++; break;
+            case 'e': (*e)++; break;
+            case 'i': (*i)++; break;
+            case 'o': (*o)++; break;
+            case 'u': (*u)++; break;
+            default: break;  
+        }
+    }
+}
+
+int main() {
+    char sentence[1000];  
+
+   
+    printf("Enter a sentence: ");
+    fgets(sentence, sizeof(sentence), stdin);  
+    
+    int a_count, e_count, i_count, o_count, u_count;
+
+    
+    countVowels(sentence, &a_count, &e_count, &i_count, &o_count, &u_count);
+
+    
+    printf("Vowel counts in the sentence:\n");
+    printf("A: %d\n", a_count);
+    printf("E: %d\n", e_count);
+    printf("I: %d\n", i_count);
+    printf("O: %d\n", o_count);
+    printf("U: %d\n", u_count);
+
+    return 0;
+}
